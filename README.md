@@ -37,7 +37,7 @@ TODO: Integrated variables HCL file
 
 ## Description
 
-See (Blog post on Qiita (In Japanese))[https://qiita.com/masru0714/items/f95a99d07c7f4bc6ef40 ]
+See [Blog post on Qiita (In Japanese)](https://qiita.com/masru0714/items/f95a99d07c7f4bc6ef40)
 
 ## License
 
