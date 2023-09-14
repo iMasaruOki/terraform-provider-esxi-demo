@@ -1,0 +1,19 @@
+{% for host in hosts %}
+#####
+# SPDX-FileCopyrightText: 2023 Masaru OKI
+#
+# SPDX-License-Identifier: Apache-2.0
+
+instance-id: {{ host }}
+local-hostname: {{ host }}
+network:
+  version: 2
+  ethernets:
+{%   for net in hosts[host] %}
+{%     for nic in hosts[host][net] %}
+    {{ nic }}:
+      addresses:
+      - {{ (hosts[host][net][nic]) }}
+{%     endfor %}
+{%   endfor %}
+{% endfor %}
