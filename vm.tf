@@ -9,9 +9,9 @@ resource "esxi_guest" "vm" {
 	power = "on"
 	disk_store = "datastore1"
 	dynamic network_interfaces {
-		for_each = keys(each.value)
+		for_each = toset(keys(each.value))
 		content {
-			virtual_network = network_interfaces
+			virtual_network = network_interfaces.key
 		}
 	}
 	 guestinfo = {
