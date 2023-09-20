@@ -11,7 +11,7 @@ resource "esxi_guest" "vm" {
 	dynamic network_interfaces {
 		for_each = keys(each.value)
 		content {
-			virtual_network = network_interfaces.key
+			virtual_network = network_interfaces
 		}
 	}
 	 guestinfo = {
