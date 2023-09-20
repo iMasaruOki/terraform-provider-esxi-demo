@@ -17,7 +17,7 @@ resource "esxi_guest" "vm" {
 	 guestinfo = {
 		"userdata" = base64gzip("#cloud-config\n")
 		"userdata.encoding" = "gzip+base64"
-		"metadata" = base64gzip(split("#####\n", data.jinja_template.metadata.result)[index(keys(local.hosts), each.key) + 1])
+		"metadata" = base64gzip(data.jinja_template.metadata[each.key].result)
 		"metadata.encoding" = "gzip+base64"
 	}
 }

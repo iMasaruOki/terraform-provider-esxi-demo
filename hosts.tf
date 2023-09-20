@@ -4,13 +4,13 @@
 
 locals {
     hosts = {
-       "HostA" = { "VM Network" = { "ens35" = "10.0.0.1/8" },
-                   "HoatAB"     = { "ens36" = "192.168.0.1/24" } }
-       "HostB" = { "VM Network" = { "ens35" = "10.0.0.2/8" },
-                   "HostAB"     = { "ens36" = "192.168.0.2/24" },
-                   "HostBC"     = { "ens37" = "172.21.0.2/24" } }
-       "HostC" = { "VM Network" = { "ens35" = "10.0.0.3/8" },
-                   "HostBC"     = { "ens36" = "172.21.0.1/24" } }
+       "HostA" = { "VM Network" = [ "10.0.0.1/8" ],
+                   "HoatAB"     = [ "192.168.0.1/24" ] }
+       "HostB" = { "VM Network" = [ "10.0.0.2/8" ],
+                   "HostAB"     = [ "192.168.0.2/24" ],
+                   "HostBC"     = [ "172.21.0.2/24" ] }
+       "HostC" = { "VM Network" = [ "10.0.0.3/8" ],
+                   "HostBC"     = [ "172.21.0.1/24" ] }
        }
 
        private_network = [for nic in distinct(flatten([

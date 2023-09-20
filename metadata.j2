@@ -1,5 +1,3 @@
-{% for host in hosts %}
-#####
 # SPDX-FileCopyrightText: 2023 Masaru OKI
 #
 # SPDX-License-Identifier: Apache-2.0
@@ -9,11 +7,11 @@ local-hostname: {{ host }}
 network:
   version: 2
   ethernets:
-{%   for net in hosts[host] %}
-{%     for nic in hosts[host][net] %}
-    {{ nic }}:
+{%   for net in nets %}
+    {{ eth_prefix }}{{ eth_start_num + loop.index - 1 }}:
       addresses:
-      - {{ (hosts[host][net][nic]) }}
+{%     for address in addresses[net] %}
+      - {{ address }}
 {%     endfor %}
 {%   endfor %}
 {% endfor %}
