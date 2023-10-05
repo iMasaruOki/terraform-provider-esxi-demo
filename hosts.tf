@@ -16,4 +16,9 @@ locals {
        private_network = [for nic in distinct(flatten([
            for host in values(local.hosts) : keys(host)
        ])) : nic if nic != "VM Network"]
+
+       netcount = [for nic in local.private_network :
+           length(compact([
+              for name in flatten([for host in values(local.hosts) : keys(host)]) :
+                   name == nic ? nic : "" ]))]
 }
