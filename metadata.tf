@@ -13,7 +13,7 @@ data "jinja_template" "metadata" {
   "eth_start_num": %d,
   "host":  "%s",
   "nets": %v,
-  "addresses\":%v
+  "addresses": %v
 }
 EOT
 ,
